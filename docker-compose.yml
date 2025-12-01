@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # Service 1: Our Node API
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongo:27017/project_mgmt
+
+    networks:
+      - app_network
+    links:
+      - mongo
+
+  # Service 2: MongoDB Database
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017" # Expose Mongo to your local machine (for Compass)
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app_network
+
+volumes:
+  mongo_data:
+
+
+networks:
+  app_network:
+    driver: bridge
