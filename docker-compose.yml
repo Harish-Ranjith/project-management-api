@@ -14,7 +14,6 @@ services:
     environment:
       - PORT=5000
       - MONGO_URI=mongodb://mongo:27017/project_mgmt
-
     networks:
       - app_network
     links:
