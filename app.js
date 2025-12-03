@@ -3,21 +3,19 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const projectRoutes = require('./routes/projectRoutes');
+const authRoutes = require('./routes/authRoutes'); // <--- 1. Import
 
-// Loads env config
 dotenv.config();
-
-// Connection establishment with the Database
 connectDB();
 
 const app = express();
 
-// Middleware
 app.use(cors());
-app.use(express.json()); // Allows parsing JSON bodies
+app.use(express.json());
 
-// Project Route
+// Routes
 app.use('/api/projects', projectRoutes);
+app.use('/api/auth', authRoutes); // <--- 2. Use Auth Routes
 
 const PORT = process.env.PORT || 5000;
 
