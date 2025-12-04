@@ -12,7 +12,7 @@ This project is not just a task manager; it is a demonstration of **modern backe
 
 I engineered this system to mimic the backend of tools like Jira or Asana, allowing users to register, securely manage their own projects, and organize tasks via a nested resource structure.
 
------
+---
 
 ## Key Technical Features
 
@@ -22,12 +22,12 @@ I engineered this system to mimic the backend of tools like Jira or Asana, allow
 - **Role-Based Access Control (RBAC):** Custom middleware ensures users can strictly access *only* their own data.
 - **Input Validation:** Strict type checking to prevent injection attacks.
 
-### 🏗 Architecture & Design
+### Architecture & Design
 - **RESTful Best Practices:** Semantic HTTP methods, status codes, and nested routing (`/projects/:id/tasks`).
 - **MVC Pattern:** Clean separation of concerns (Models, Controllers, Routes) for maintainability.
 - **Multi-Tenancy:** Logical data isolation ensures User A never sees User B's projects.
 
-### ⚙️ DevOps & Automation
+### DevOps & Automation
 - **Dockerized Environment:** The entire stack (Node.js API + MongoDB) is containerized via `docker-compose`, guaranteeing that "it works on my machine" means it works everywhere.
 - **CI/CD Pipeline:** A GitHub Actions workflow automatically spins up a MongoDB service and runs integration tests on every push, ensuring code quality.
 - **Interactive Documentation:** Fully documented using **OpenAPI/Swagger** standards.
@@ -67,17 +67,22 @@ You can run this project in two ways: using Docker (Recommended) or Manually.
    ```
 3. **Access the documentation**
    ```
-     http://localhost:5000
+   http://localhost:5000
     ```
-   
+
+---
+
 ## Testing
   This project relies on Integration Testing to verify that the API endpoints, database, and authentication logic work together correctly.
   To run the test suite:
   ```Bash
-    # If running locally (ensure local MongoDB is up)
-    npm test
-    # The CI Pipeline runs these tests automatically on every GitHub push.
+  # If running locally (ensure local MongoDB is up)
+  npm test
+  # The CI Pipeline runs these tests automatically on every GitHub push.
   ```
+
+---
+
 ## API Documentation
   I believe good code documents itself, but great code has a manual.
   Visit /api-docs on your running server to interact with the API endpoints directly from your browser.
