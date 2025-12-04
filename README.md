@@ -34,7 +34,7 @@ I engineered this system to mimic the backend of tools like Jira or Asana, allow
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Category | Technologies |
 |----------|--------------|
