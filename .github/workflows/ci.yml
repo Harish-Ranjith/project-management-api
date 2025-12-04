@@ -11,14 +11,24 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # services:
+    #   # GitHub Actions will spin up a MongoDB container for us!
+    #   mongodb:
+    #     image: mongo:6
+    #     ports:
+    #       - 27017:27017
+    #     options: >-
+    #       --health-cmd mongo
+    #       --health-interval 10s
+    #       --health-timeout 5s
+    #       --health-retries 5
     services:
-      # GitHub Actions will spin up a MongoDB container for us!
       mongodb:
         image: mongo:6
         ports:
           - 27017:27017
         options: >-
-          --health-cmd mongo
+          --health-cmd "mongosh --eval 'db.adminCommand(\"ping\")'"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
